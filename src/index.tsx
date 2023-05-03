@@ -6,17 +6,12 @@ import { Login } from './pages/Login';
 
 import './index.css';
 
-
-
-
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/Login' element={<Login/>} />
-
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
