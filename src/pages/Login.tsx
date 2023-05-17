@@ -1,32 +1,45 @@
-import { useEffect, useState } from "react";
+//import { useNavigate } from "react-router-dom";
+
+import { useState } from "react";
 import { FaHome, FaWhatsapp } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { usersPost } from "../hooks/createHoks";
+
 
 export function Login() {
+  const navigate = useNavigate(); 
+
   const [name, setName] = useState("");
 
   const [email, setEmail] = useState("");
 
-  const [cellPhone, setCellPhopne] = useState("")
+  const [password, setPassword] = useState("");
 
 
   function createLogin() {
-    if (name.length < 1) {
-      alert("O Campo nome é obrigatorio");
-    }
+   if (name.length < 1) {
+     alert("O Campo nome é obrigatorio");
+   }
+   else if(email.length < 1){
+    alert("Campo Email obrigatorio")
+  }
+  else if(password.length < 1){
+    alert("Campo Senha obrigatorio")
+  }
+  else {
+
+  }
+  usersPost(name,email,password)
+  navigate("/") 
   }
 
-  useEffect(() => {
-    createLogin()
-
-  })
 
   return (
     <>
-      <div className="bg-black w-screen h-screen">
+      <div className="bg-black w-auto h-screen">
         <div className="flex flex-row justify-between ml-14">
           <h1 className="text-white mt-5 text-6xl text"> ScrapyAI </h1>
-          <div className="flex flex-row mt-6 mr-20 gap-5">
+          <div className="flex flex-row mt-6  gap-5">
             <button className=" text-white flex flex-row gap-2">
               <FaHome color="White" className="mt-1 w-7 h-6" />
               <Link to="/" className=" text-start  text-2xl">
@@ -39,18 +52,18 @@ export function Login() {
             </button>
           </div>
         </div>
-        <ul className="w-screen h-2 bg-white mt-5" />
+        <ul className="w-auto h-2 bg-white mt-5" />
         <div className="flex flex-col ml-14">
           <h1 className="text-white text-4xl mt-5 text-ellipsis">
             Crie Seu Login
           </h1>
         </div>
-        <form className=" mt-6 ml-10  w-2/3 flex flex-row">
+        <form className=" mt-6 ml-10  w-auto flex flex-row">
           <label className="flex flex-col text-white">
             Nome:
             <input
               type="text"
-              className="rounded-md border-2 border-gray-700 text-center text-black"
+              className="w-96 rounded-md border-2 border-gray-700 text-center text-black"
               placeholder="Nome"
               onChange={(event) => setName(event.target.value)}
               value={name}
@@ -60,38 +73,38 @@ export function Login() {
             EmaiL:
             <input
               type="text"
-              className="rounded-md border-2 border-gray-700 text-center text-black"
+              className="w-96 rounded-md border-2 border-gray-700 text-center text-black"
               placeholder="Email"
               onChange={(event) => setEmail(event.target.value)}
               value={email}
             />
           </label>
         </form>
-        <form className="flex flex-row  gap-3 ml-10 mt-7 w-24 h-8"> 
+        <form className="flex flex-row  gap-5 ml-10 mt-7 w-24 h-8"> 
           <label className="text-white">
             Whathsap:
             <input 
               type="text"
-              className="rounded-md border-2 border-gray-700 text-center text-black"
+              className="w-96 rounded-md border-2 border-gray-700 text-center text-black"
               placeholder="Whathsap"
-              onChange={(event) => setCellPhopne(event.target.value)}
-              value={cellPhone}
+              onChange={(event) => setPassword(event.target.value)}
+              value={password}
             />
           </label>
           <label className="text-white">
             Senha:
             <input 
               type="text"
-              className="rounded-md border-2 border-gray-700 text-center text-black"
+              className="w-96 rounded-md border-2 border-gray-700 text-center text-black"
               placeholder="senha"
-              onChange={(event) => setCellPhopne(event.target.value)}
-              value={cellPhone}
+
             />
           </label>
         </form>
-        <div className="flex flex-row justify-end w-14 h-14 bg-white mt-10">
-          <button onClick={createLogin}> testes </button>
+        <div className="flex flex-row justify-end w-1/2 mt-10">
+          <button className="w-12 h-12 rounded-md bg-white" onClick={createLogin} >criar</button>
         </div>
+        
       </div>
     </>
   );

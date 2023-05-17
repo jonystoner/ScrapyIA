@@ -1,5 +1,3 @@
-//import { useEffect } from "react";
-
 import { FaHome, FaWhatsapp } from "react-icons/fa";
 
 import { Link } from 'react-router-dom';
@@ -21,15 +19,16 @@ export function Home() {
               Home
             </button>
             <button className="text-white flex flex-row gap-1 text-2xl">
+              <Link to="/users" className="ml-4 text-start mt-1 text-xl">
               <FaWhatsapp color="White" className="mt-1" />
               Contatos
+              </Link>
             </button>
             <button className=" flex flex-row w-20 h-10 bg-white text-base rounded-lg hover:bg-gray-500">
               <Link to="/Login" className="ml-4 text-start mt-1 text-xl">
                 Login
               </Link>
-            </button>
-            
+            </button>            
           </div>
         </div>
         <ul className="w-screen h-2 bg-white mt-5" />
