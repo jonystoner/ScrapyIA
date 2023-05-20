@@ -1,13 +1,11 @@
-//import { useNavigate } from "react-router-dom";
 
-import { useState } from "react";
-import { FaHome, FaWhatsapp } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { usersPost } from "../hooks/createHoks";
-
+import { Navbar } from "../components/Navbar";
 
 export function Login() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const [name, setName] = useState("");
 
@@ -15,43 +13,32 @@ export function Login() {
 
   const [password, setPassword] = useState("");
 
-
   function createLogin() {
-   if (name.length < 1) {
-     alert("O Campo nome é obrigatorio");
-   }
-   else if(email.length < 1){
-    alert("Campo Email obrigatorio")
+    if (!name) {
+      alert("O Campo nome é obrigatorio");
+    } else if (!email.length) {
+      alert("Campo Email obrigatorio");
+    } else if (!password.length) {
+      alert("Campo Senha obrigatorio");   
+    } else if(name|| email || password){
+      usersPost(name, email, password)
+      alert("Criado com sucesso")
+      navigate("/")
+    } 
+    else {
+      console.error(Error);
+    }   
+   
   }
-  else if(password.length < 1){
-    alert("Campo Senha obrigatorio")
-  }
-  else {
 
-  }
-  usersPost(name,email,password)
-  navigate("/") 
-  }
+  useEffect(() => {    
 
+  },[])
 
   return (
     <>
       <div className="bg-black w-auto h-screen">
-        <div className="flex flex-row justify-between ml-14">
-          <h1 className="text-white mt-5 text-6xl text"> ScrapyAI </h1>
-          <div className="flex flex-row mt-6  gap-5">
-            <button className=" text-white flex flex-row gap-2">
-              <FaHome color="White" className="mt-1 w-7 h-6" />
-              <Link to="/" className=" text-start  text-2xl">
-                Home
-              </Link>
-            </button>
-            <button className="text-white flex flex-row gap-1 text-2xl">
-              <FaWhatsapp color="White" className="mt-1" />
-              Contatos
-            </button>
-          </div>
-        </div>
+        <Navbar />
         <ul className="w-auto h-2 bg-white mt-5" />
         <div className="flex flex-col ml-14">
           <h1 className="text-white text-4xl mt-5 text-ellipsis">
@@ -80,10 +67,10 @@ export function Login() {
             />
           </label>
         </form>
-        <form className="flex flex-row  gap-5 ml-10 mt-7 w-24 h-8"> 
+        <form className="flex flex-row  gap-5 ml-10 mt-7 w-24 h-8">
           <label className="text-white">
             Whathsap:
-            <input 
+            <input
               type="text"
               className="w-96 rounded-md border-2 border-gray-700 text-center text-black"
               placeholder="Whathsap"
@@ -93,18 +80,21 @@ export function Login() {
           </label>
           <label className="text-white">
             Senha:
-            <input 
+            <input
               type="text"
               className="w-96 rounded-md border-2 border-gray-700 text-center text-black"
               placeholder="senha"
-
             />
           </label>
         </form>
         <div className="flex flex-row justify-end w-1/2 mt-10">
-          <button className="w-12 h-12 rounded-md bg-white" onClick={createLogin} >criar</button>
+          <button
+            className="w-12 h-12 rounded-md bg-white"
+            onClick={createLogin}
+          >
+            criar
+          </button>
         </div>
-        
       </div>
     </>
   );
