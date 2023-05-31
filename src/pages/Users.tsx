@@ -10,26 +10,30 @@ import { Navbar } from "../components/Navbar";
 export function Users(): JSX.Element  {
   const [dados, setDados] = useState<CreateUser[]>([]);
 
-  const regex = ''
+  
 
   const columns: TableColumn<CreateUser>[] = [
     {
-        name: 'name',
-        cell: row => row.name
+        name: 'Nome',
+        cell: row => row.name,
+        style:{
+          background: "blue",
+        }
     },
     {
-        name: 'email',
+        name: 'Email',
         cell: row => row.email,
         style:{
           background: "red",
-          text: "blue"
-        }
-        
+        }        
     },
 
     {
-      name: 'createdAt',
-      cell: row => row.createdAt.replace(regex,"")     
+      name: 'Data de Criação',
+      cell: row => row.createdAt.replace("",""),
+      style:{
+        background: "green",
+      }      
   },
 ];
 

@@ -15,7 +15,7 @@ export const Navbar = () => {
             </Link>
           </button>
           <button className="text-white flex flex-row gap-1 text-2xl">
-            <Link to="/users" className="flex flex-row gap-2 ml-4 text-start mt-1 text-xl">
+            <Link to="/Contatos" className="flex flex-row gap-2 ml-4 text-start mt-1 text-xl">
               <FaWhatsapp color="White" className="mt-1" />
               Contatos
             </Link>
