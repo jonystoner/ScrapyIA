@@ -1,6 +1,6 @@
 export interface CreateUser {
-    name?:String,
-    email: string,
-    password: string
-
+    name?:String,  
+    email?: string,      
+    password?: string
+    createdAt: string
 }
