@@ -28,6 +28,8 @@ export function Login() {
     }
   }
 
+  console.log(email,name)
+
   useEffect(() => {});
 
   return (
