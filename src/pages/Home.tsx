@@ -3,25 +3,22 @@ import { Navbar } from "../components/Navbar";
 export function Home() {
   return (
     <>
-      <Navbar />
-      <div className="bg-black w-auto h-screen ">
-        <ul className=" bg-white h-1 w-auto" />
+    <div className="bg-indigo-900 w-auto h-screen">
+      <Navbar />      
+      <ul className="w-auto h-2 bg-white mt-5"/>
         <div className=" mt-3 flex flex-row justify-between" >
-          <div className="text-white flex flex-row w-2/6 text-4xl">
+          <div className=" ml-7 text-purple-100 flex flex-col justify-center text-9xl w-2/6">
             <strong>
-              ScrapyAI: Uma nova maneira de ler dados de for mar agil
-              inteligente e rapida aprendendo com você e te mostrando as maiores
-              tendencias{" "}
+                Sempre Conectado
             </strong>
           </div>
-          <div className="w-1/3 mr-7 justify-center">
-            <img src="img1.png" alt="" />
+          <div className="mr-7 mt-7 justify-start h-72 ">
+            <img className="rounded-md" src="phone.png" alt="" />
           </div>
         </div>
-        <div className="flex flex-row justify-start">
-          <button className="ml-7 rounded-md bg-purple-500 text-white ">
-            {" "}
-            Baixe Nosso APP{" "}
+        <div className="flex flex-row">
+          <button className="text-3xl mt-10 ml-7 w-80 h-20 rounded-3xl bg-red-700 text-white ">
+             Saiba Mais
           </button>
         </div>
       </div>

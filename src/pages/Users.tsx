@@ -46,7 +46,7 @@ export function Users(): JSX.Element {
 
   return (
     <>
-      <div className="w-screen h-screen bg-black">
+      <div className="w-screen h-screen bg-indigo-900">
         <Navbar />
         <ul className="w-auto h-2 bg-white mt-5" />
         <div className=" flex flex-col h-auto mt-10 ml-5 mr-5 rounded-t-sm border-2 border-red-600">

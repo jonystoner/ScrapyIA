@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 export const Navbar = () => {
   return (
     <>
-      <div className=" bg-black flex flex-row justify-between w-auto h-24">
-        <h1 className="text-white mt-5 text-6xl text"> ScrapyAI </h1>
+      <div className=" bg-indigo-900 flex flex-row justify-between w-auto h-24">
+        <h1 className="text-white ml-7 mt-5 text-6xl text"> ScrapyAI </h1>
         <div className="flex flex-row  mt-6 mr-7 gap-5">
           <button className="text-white flex flex- gap-2 text-2xl">
             <Link to="/" className=" flex flex-row gap-2 ml-4 text-start mt-1 text-xl">
