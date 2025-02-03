@@ -1,29 +1,27 @@
-import { FaHome, FaWhatsapp } from "react-icons/fa";
+import { FaHome, FaWhatsapp, FaSignInAlt } from "react-icons/fa";
 
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
+
+  const navigate = useNavigate();
+
   return (
     <>
       <div className=" bg-indigo-900 flex flex-row justify-between w-auto h-24">
         <h1 className="text-white ml-7 mt-5 text-6xl text"> ScrapyAI </h1>
         <div className="flex flex-row  mt-6 mr-7 gap-5">
-          <button className="text-white flex flex- gap-2 text-2xl">
-            <Link to="/" className=" flex flex-row gap-2 ml-4 text-start mt-1 text-xl">
-              <FaHome color="white" className="mt-1" />
-              Home
-            </Link>
+          <button onClick={() => navigate('/')} className="bg-white text-black px-4 py-2 rounded-lg hover:bg-slate-800 transition  h-11 duration-300 flex flex-row  justify-center gap-1">
+            <FaHome className="mt-1 " />
+            Home
           </button>
-          <button className="text-white flex flex-row text-2xl">
-            <Link to="/Contatos" className="flex flex-row gap-2 ml-4 text-start mt-1 text-xl">
-              <FaWhatsapp color="White" className="mt-1" />
-              Contatos
-            </Link>
+          <button onClick={() => navigate('/Contatos')} className="bg-white text-black px-4 py-2 rounded-lg hover:bg-slate-800 transition  h-11 duration-300 flex flex-row  justify-center gap-1" >
+            <FaWhatsapp className="mt-1"/>
+            Contatos
           </button>
-          <button className=" flex flex-row w-20 h-10 bg-white text-base rounded-lg hover:bg-gray-500">
-            <Link to="/Login" className="flex flex-row gap-2 ml-4 text-start mt-1 text-xl">
-              Login
-            </Link>
+          <button onClick={() => navigate('/Login')} className="bg-white text-black px-4 py-2 rounded-lg flex flex-row gap-1 hover:bg-slate-800 transition  h-11 duration-300 w-28 ">
+            <FaSignInAlt className="mt-1"/> 
+            Login
           </button>
         </div>
       </div>

@@ -81,7 +81,7 @@ export function Login() {
             </div>
             <div className="flex flex-row ml-7 justify-center">
               <button
-                className=" mt-7 w-20 h-14 rounded-md bg-red-900 text-white text-2xl"
+                className=" bg-green-600 mt-7 w-20 h-14 rounded-md text-white text-2xl"
                 onClick={createLogin}
               >
                 Salvar
