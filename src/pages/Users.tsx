@@ -5,14 +5,20 @@ import { CreateUser } from "../interface/Record";
 import DataTable, { TableColumn } from "react-data-table-component";
 
 import { Navbar } from "../components/Navbar";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 export function Users(): JSX.Element {
   const [dados, setDados] = useState<CreateUser[]>([]);
+
+  const [shownav, setShowNav] = useState(false);
 
   const date = new Date();
 
   const formattedDate = date.toLocaleDateString("en-GB");
 
+  const [temperature, setTemperature] = useState("");
+
+ 
   const columns: TableColumn<CreateUser>[] = [
     {
       name: "Nome",
@@ -40,14 +46,28 @@ export function Users(): JSX.Element {
 
   useEffect(() => {
     api.get("/users", {}).then((response) => {
-      setDados(response.data);
+      return setDados(response.data);
     });
   }, []);
 
+
   return (
     <>
-      <div className="w-screen h-screen bg-indigo-900">
-        <Navbar />
+
+      <div className="">
+        <div className='bg-black'>
+          <div className="">
+            <GiHamburgerMenu
+              className="w-10 h-10 ml-3 cursor-pointer text-white"
+              onClick={() => setShowNav(!shownav)}
+            />
+            {shownav && (
+              <div className="absolute left-0 bg-white shadow-lg">
+                <Navbar />
+              </div>
+            )}
+          </div>
+        </div>
         <ul className="w-auto h-2 bg-white mt-5" />
         <div className=" flex flex-col h-auto mt-10 ml-5 mr-5 rounded-t-sm border-2 border-red-600">
           <div className="text text-white"> {formattedDate} </div>
@@ -58,6 +78,22 @@ export function Users(): JSX.Element {
             pagination
             selectableRows
           />
+        </div>
+
+        <div>
+          <div>
+            <input className="bg-blue-900 rounded"
+              type="text"
+              value={temperature}
+              onChange={(e) => setTemperature(e.target.value)}
+            />
+            
+            <button className="bg-green-900" type="button">
+                clique aqui 
+            </button>
+            
+          </div>
+
         </div>
       </div>
     </>
