@@ -1,26 +1,29 @@
+import { useState } from "react";
 import { Navbar } from "../components/Navbar";
+import { GiHamburgerMenu } from "react-icons/gi";
+import Dashboard from "./Dashboard";
+import Clothing from "../components/clothing";
+
+
 
 export function Home() {
+
+  const [shownav, setShowNav] = useState(false);
+
+  const handleSubmit = () => {
+    return setShowNav(!shownav)
+  }
+
   return (
     <>
-      <div className="bg-black w-screen h-screen">
-        <Navbar />
-        <ul className="w-screen h-2 bg-white mt-5" />
-        <div className="mt-28 ml-20 flex flex-row justify-between">
-          <div className="text-white w-2/6 text-4xl">
-            <strong>
-              ScrapyAI: Uma nova maneira de ler dados de for mar agil
-              inteligente e rapida aprendendo com você e te mostrando as maiores
-              tendencias{" "}
-            </strong>
-            <button className=" rounded-md bg-purple-500 text-white w-96 h-12 mt-10">
-              {" "}
-              Baixe Nosso APP{" "}
-            </button>
-          </div>
-          <div className="mr-20 h-52">
-            <img src="img1.png" alt="" />
-          </div>
+      <div>
+        <Navbar/>
+
+        <div className="w-full">
+          <Dashboard/>
+        </div>
+        <div>
+          <Clothing/>
         </div>
       </div>
     </>
