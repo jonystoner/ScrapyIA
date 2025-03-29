@@ -10,6 +10,7 @@ import { Users } from './pages/Users';
 
 
 import './index.css';
+import Register from './pages/Register';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.render(
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/Login' element={<Login/>} />
+        <Route path='/Register' element={<Register/>} />
         <Route path='/Contatos' element={<Users/>} />
       </Routes>
     </BrowserRouter>

@@ -3,7 +3,7 @@
 export const Modal = () => {
   return (
     <>
-      <div className="bg-black h-full pt-3 pl-3 w-72  flex flex-col text-white">
+      <div className="bg-white h-full pt-3 pl-3 w-72 flex- flex-col text-black">
         <ul className="justify-center pt-7">
           <li> 
             <a> Shop Now</a>

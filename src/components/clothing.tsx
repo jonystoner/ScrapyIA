@@ -3,10 +3,10 @@
 export const Clothing = () => {
   return (
     <>
-      <div className="flex flex-row justify-center pt-36">
+      <div className="flex flex-row justify-center pt-14">
         <h1 className="text-3xl"> Summer 2025 </h1>
       </div>
-      <div className="grid grid-cols-4 pt-40 w-auto">
+      <div className="grid grid-cols-4 pt-20 w-full">
         <div className="flex flex-col items-center text-center space-y-2">
           <img
             src="colete azul marinho.png"
