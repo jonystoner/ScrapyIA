@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Navbar } from "../components/Navbar";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Dashboard from "./Dashboard";
@@ -13,6 +13,10 @@ export function Home() {
   const handleSubmit = () => {
     return setShowNav(!shownav)
   }
+  
+  useEffect(() => {
+    document.title = "Home";
+    }, []);
 
   return (
     <>

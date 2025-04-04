@@ -15,7 +15,7 @@ export const Modal = () => {
             <a>Catalogo</a>
           </li>
           <li className="pt-3"> 
-            <a>Masculino</a>
+            <a href="/Masculine">Masculino</a>
           </li>
           <li className="pt-3">
             <a>Feminino</a>

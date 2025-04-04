@@ -8,12 +8,13 @@ export function Register() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
     const [loading, setLoading] = useState(false);
 
     const validateForm = () => {
         const newErrors: { [key: string]: string } = {};
-        if (!email) newErrors.email = "O campo email é obrigatório";
+        if (!name) newErrors.name = "O campo nome é obrigatório";
         if (!password) newErrors.password = "O campo senha é obrigatório";
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -25,7 +26,7 @@ export function Register() {
 
         setLoading(true);
         try {
-            await usersPost(email, password);
+            await usersPost(name,email, password);
             alert("Conta criada com sucesso!");
             navigate("/");
         } catch (error) {
@@ -36,7 +37,9 @@ export function Register() {
         }
     };
 
-    useEffect(() => { }, []);
+    useEffect(() => { 
+        document.title = "Cadastro";
+    }, []);
 
     return (
         <div className='h-svh'>
@@ -52,27 +55,27 @@ export function Register() {
                             </label>
                             <input
                                 type="text"
-                                id="nome"
-                                name="nome"
+                                id="name"
+                                name="name"
                                 placeholder="Digite seu Nome"
                                 className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                                value={email}
-                                onChange={(event) => setEmail(event.target.value)}
+                                value={name}
+                                onChange={(event) => setName(event.target.value)}
                             />
-                            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                            {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                         </div>
                         <div>
-                            <label htmlFor="emial" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                                 Email
                             </label>
                             <input
-                                type="Email"
-                                id="Email"
-                                name="Email"
+                                type="email"
+                                id="email"
+                                name="email"
                                 placeholder="Digite sua senha"
                                 className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                                value={password}
-                                onChange={(event) => setPassword(event.target.value)}
+                                value={email}
+                                onChange={(event) => setEmail(event.target.value)}
                             />
                             {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
                         </div>
@@ -87,6 +90,23 @@ export function Register() {
                                 name="password"
                                 placeholder="Digite sua senha"
                                 className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                                value={confirmPassword}
+                                onChange={(event) => setConfirmPassword(event.target.value)}
+                                
+                            />
+                            {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
+                        </div>
+                        
+                        <div>
+                            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                                Confirme sua senha
+                            </label>
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Confirme sua senha"
+                                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                                 value={password}
                                 onChange={(event) => setPassword(event.target.value)}
                             />
@@ -95,6 +115,7 @@ export function Register() {
                     </form>
                     <div className="mt-6">
                         <button
+                            onClick={handleSubmit}
                             className="w-full bg-black text-white py-2 px-4 rounded-md hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:ring-offset-2"
                         >
                             Criar uma Conta

@@ -27,7 +27,7 @@ export function Login() {
 
         setLoading(true);
         try {
-            await usersPost(email, password);
+            await usersPost(email, name,password);
             alert("Conta criada com sucesso!");
             navigate("/");
         } catch (error) {
@@ -38,7 +38,9 @@ export function Login() {
         }
     };
 
-    useEffect(() => { }, []);
+    useEffect(() => {
+        document.title = "Login";
+     }, []);
 
     return (
         <div className='h-svh'>
