@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 export const Masculine = () => {
 
     useEffect(() => {
-        document.title = "Masculine";
+        document.title = "Masculino";
         }, []);
     return (
       <>
@@ -16,7 +16,18 @@ export const Masculine = () => {
         <div className="grid grid-cols-4 pt-20 w-full">
           <div className="flex flex-col items-center text-center space-y-2">
             <img
-              src="colete azul marinho.png"
+              src="camiseta.png"
+              alt="camiseta branca"
+              className="w-72"
+            />
+            <span className="text-lg font-semibold">camiseta branca</span>
+            <button className="bg-black text-white px-4 py-2 rounded-lg shadow-md hover:bg-gray-800 transition">
+              Comprar
+            </button>
+          </div>
+          <div className="flex flex-col items-center text-center space-y-2">
+            <img
+              src="camiseta preta.png"
               alt="Vestido branco"
               className="w-72"
             />
@@ -27,18 +38,7 @@ export const Masculine = () => {
           </div>
           <div className="flex flex-col items-center text-center space-y-2">
             <img
-              src="conjunto preto.png"
-              alt="Vestido branco"
-              className="w-72"
-            />
-            <span className="text-lg font-semibold">Vestido branco</span>
-            <button className="bg-black text-white px-4 py-2 rounded-lg shadow-md hover:bg-gray-800 transition">
-              Comprar
-            </button>
-          </div>
-          <div className="flex flex-col items-center text-center space-y-2">
-            <img
-              src="gift.png"
+              src="camiseta lisa preta.png"
               alt="Vestido branco"
               className="w-72"
             />

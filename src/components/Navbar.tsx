@@ -1,12 +1,15 @@
 import { useState } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { GiHamburgerMenu, } from "react-icons/gi";
+import { FaCartPlus } from "react-icons/fa";
 import { Modal } from "./Modal"
 import { Link } from "react-router-dom";
+import Cart from "./Cart";
 
 export const Navbar = () => {
 
   const [showNav, setShowNav] = useState(false)
 
+  const [showCart, setShowCart] = useState(false) 
 
   //const navigate = useNavigate();
 
@@ -37,10 +40,16 @@ export const Navbar = () => {
             </li>
           </ul>
           <div className="flex flex-col justify-center">
-          <ul className="flex flex-row  gap-2 text-black text-xs">
-            <li><Link to="/Register">Cadastre-se |</Link></li>
-            <li><Link to="/Login">Iniciar Sessão</Link></li>
-          </ul>
+            <ul className="flex flex-row  gap-2 text-black text-xs">
+              <li><Link to="/Register">Cadastre-se |</Link></li>
+              <li><Link to="/Login">Iniciar Sessão</Link></li>
+              <div>
+                <FaCartPlus className="w-9 h-5" onClick={() => setShowCart(!showCart)} />
+                  <div>                    
+                    {showCart && <Cart/>}
+                  </div>
+              </div>
+            </ul>
           </div>
         </div>
       </nav>
