@@ -10,7 +10,7 @@ export function Register() {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
-    const [loading, setLoading] = useState(false);
+    const [, setLoading] = useState(false);
 
     const validateForm = () => {
         const newErrors: { [key: string]: string } = {};

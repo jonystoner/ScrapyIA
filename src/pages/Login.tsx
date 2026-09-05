@@ -6,12 +6,12 @@ import Navbar from '../components/Navbar';
 
 export function Login() {
     const navigate = useNavigate();
-    const [name, setName] = useState("");
+    const [name, ] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
     const [loading, setLoading] = useState(false);
-    const [shownav, setShowNav] = useState(false);
+    const [shownav, ] = useState(false);
 
     const validateForm = () => {
         const newErrors: { [key: string]: string } = {};

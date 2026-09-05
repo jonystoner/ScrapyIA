@@ -15,8 +15,8 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="w-full h-auto drop-shadow-md pt-3">
-        <div className="w-full flex flex-row justify-between px-8">
+      <nav className="w-full h-auto drop-shadow-md ">
+        <div className="w-full flex flex-row justify-between px-8 pt-3 bg-white">
           <div className="flex flex-col justify-center">
             <div className="">
               <div className="relative">

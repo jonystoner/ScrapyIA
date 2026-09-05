@@ -8,6 +8,7 @@ import Masculine from './pages/Masculine';
 import './index.css';
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Female from './pages/female';
 
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);
@@ -19,6 +20,7 @@ root.render(
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Masculine" element={<Masculine />} />
+         <Route path="/female" element={<Female />} />
         <Route path="/Contatos" element={<Users />} />
       </Routes>
     </BrowserRouter>
